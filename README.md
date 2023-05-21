@@ -60,7 +60,7 @@ CSS:
 - [ ] schimbarea aleatoare a valorilor unor proprietăți (de exemplu: culoare, dimensiuni, poziție)
 - [ ] folosirea proprietăților classList, target sau currentTarget
 - [ ] folosirea metodelor getComputedStyle și stopPropagation
-- [ ] validarea datelor dintr-un formular folosind expresii regulate
+- [x] validarea datelor dintr-un formular folosind expresii regulate
 
 Pe lângă implementarea acestor cerințe minimale (a căror rezolvare corectă nu garantează punctajul maxim), includeți în proiect și tratarea altor probleme (la alegere) precum cea a accesibilității, internaționalizării (traducere, caractere speciale etc.), folosirii canvas/svg etc.  
 
