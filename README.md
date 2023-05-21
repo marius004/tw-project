@@ -51,7 +51,7 @@ CSS:
 - [x] modificarea stilului unui element sau al unui grup de elemente
 - [x] manipularea DOM-ului (selectare după id, tag, clasă, folosind selectori CSS)
 - [ ] crearea și stergerea de elemente HTML
-- [ ] folosirea și modificarea evenimentelor generate de mouse si tastatură
+- [x] folosirea și modificarea evenimentelor generate de mouse si tastatură
 - [x] modificare de proprietăți
 - [x] inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)
 - [ ] folosirea setTimeout sau setInterval
