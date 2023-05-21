@@ -11,13 +11,12 @@ const toggleGopher = () => {
 // modal 
 const addModalPropertyToImages = () => {
     const imgs = document.querySelectorAll("img.toggle-fullscreen-modal");
-    imgs?.forEach(img => addModalPropertyToImage(img));
+    imgs.forEach(img => addModalPropertyToImage(img));
 };
 
 const addModalPropertyToImage = (img) => {
     const modal = document.querySelector("#image-modal");
     const modalImage = modal.querySelector("img.modal-content");
-    const modalClose = modal.querySelector(".close");
     const modalCaption = modal.querySelector("#caption");
 
     img.onclick = () => {
