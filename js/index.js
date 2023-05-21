@@ -36,8 +36,62 @@ const addModalCloseEvent = () => {
     };
 };
 
-window.addEventListener("scroll", toggleGopher);
-window.onload = () => {
-    addModalPropertyToImages();
-    addModalCloseEvent();
+// form
+const isValidName = (value) => {
+    return /^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i.test(value);
+};
+
+const isValidEmail = (value) => {
+    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
+};
+
+const validateForm = () => {
+    const form = document.querySelector("#Contact_me");
+    const firstName = form.querySelector("#first-name");
+    const lastName = form.querySelector("#last-name");
+    const email = form.querySelector("#email");
+    const message = form.querySelector("#message");
+
+    if (!isValidName(firstName.value))
+        return {message: "First name is invalid", isValid: false};
+    if (!isValidName(lastName.value))
+        return {message: "Last name is invalid", isValid: false};
+    if (!isValidEmail(email.value))
+        return {message: "Email is invalid", isValid: false};
+    if (message.value.trim() === "")
+        return {message: "Message cannot be empty", isValid: false};
+
+    return {message: "", isValid: true};
+};
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const validation = validateForm();
+    if (!validation.isValid) {
+        alert(validation.message);
+        return;
+    }
+
+    alert("Message sent successfully!");
+};
+
+const addFormEventListeners = () => {
+    const dispatcher = document.querySelector("#contact-me-dispatcher");
+    const form = document.querySelector("#Contact_me");
+    const close = form.querySelector("#close-form");
+
+    dispatcher.addEventListener("click", () => {
+        form.style.display = form.style.display === "none" ? "block" : "none";
+    });
+
+    close.addEventListener("click", () => { 
+        form.style.display = "none";
+    });
 }
+
+// event listeners
+window.addEventListener("scroll", toggleGopher);
+window.addEventListener("load", addModalPropertyToImages);
+window.addEventListener("load", addModalCloseEvent);
+window.addEventListener("load", addFormEventListeners);

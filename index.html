@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/gopher.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/contact.css">
     <script src="js/index.js" defer></script>
 </head>   
 <body>
@@ -25,6 +26,7 @@
         <li><a class="nav-item" href="#Instructions">Instructions</a></li>
         <li><a class="nav-item" href="#Calling_Convention">Calling Convention</a></li>
         <li><a class="nav-item" href="#Additional_Resources">Additional Resources</a></li>
+        <li id="contact-me-dispatcher"><a class="nav-item" href="#Contact_me">Contact me</a></li>
       </ul>
     </nav>
 
@@ -845,6 +847,24 @@ myFunc:
           <img class="modal-content">
           <div id="caption"></div>
         </div>
+      </section>
+
+      <!-- Contact me -->
+      <section id="Contact_me">
+        <span id="close-form">&times;</span>
+        <h2 class="form-title">Contact me</h2>
+        <p class="form-description">Contact me if you have any questions about Assembly</p>
+        <form onsubmit="handleSubmit(event)">
+          <label for="first-name">First Name:</label> 
+          <input type="text" id="first-name" name="first-name" required> <br />
+          <label for="last-name">Last Name:</label> 
+          <input type="text" id="last-name" name="last-name" required> <br/>
+          <label for="email">Email:</label> 
+          <input type="text" id="email" name="email" required> <br/>
+          <label for="message">Message:</label> <br/>
+          <textarea id="message" name="message" required></textarea> <br/>
+          <button type="submit">Submit</button>
+        </form>
       </section>
 
       <footer>
