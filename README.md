@@ -55,7 +55,7 @@ CSS:
 - [x] modificare de proprietăți
 - [x] inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)
 - [ ] folosirea setTimeout sau setInterval
-- [ ] folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
+- [x] folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
 - [ ] folosirea a cel puțin unei metode din clasele: Math, Array, String, Date
 - [ ] schimbarea aleatoare a valorilor unor proprietăți (de exemplu: culoare, dimensiuni, poziție)
 - [ ] folosirea proprietăților classList, target sau currentTarget

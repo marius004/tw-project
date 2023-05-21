@@ -76,6 +76,29 @@ const handleSubmit = (event) => {
     alert("Message sent successfully!");
 };
 
+const addFormInputsEventListeners = (form) => {
+    const firstName = form.querySelector("#first-name");
+    const lastName = form.querySelector("#last-name");
+    const email = form.querySelector("#email");
+    const message = form.querySelector("#message");
+
+    firstName.value = localStorage.getItem("first-name") || firstName.value;
+    lastName.value = localStorage.getItem("last-name") || lastName.value;
+    email.value = localStorage.getItem("email") || email.value;
+    message.value = localStorage.getItem("message") || message.value;
+
+    const addOnChangeEvent = (localStorageKey, element) => {
+        element.addEventListener("input", () => {
+            localStorage.setItem(localStorageKey, element.value);
+        });
+    };
+
+    addOnChangeEvent("first-name", firstName);
+    addOnChangeEvent("last-name", lastName);
+    addOnChangeEvent("email", email);
+    addOnChangeEvent("message", message);
+};
+
 const addFormEventListeners = () => {
     const dispatcher = document.querySelector("#contact-me-dispatcher");
     const form = document.querySelector("#Contact_me");
@@ -88,6 +111,8 @@ const addFormEventListeners = () => {
     close.addEventListener("click", () => { 
         form.style.display = "none";
     });
+
+    addFormInputsEventListeners(form);
 }
 
 // event listeners
