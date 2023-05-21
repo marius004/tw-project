@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/documentation.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/gopher.css">
+    <link rel="stylesheet" href="css/modal.css">
     <script src="js/index.js" defer></script>
 </head>   
 <body>
@@ -64,7 +65,7 @@
           hold-overs from older, 16-bit versions of the instruction set. However, they are sometimes convenient 
           when dealing with data that are smaller than 32-bits (e.g. 1-byte ASCII characters).
         </p>
-        <img src="./assets/registers.png" alt="registers" style="height: 50vh; display: block;margin: 0 auto;">
+        <img class="toggle-fullscreen-modal" src="./assets/registers.png" alt="registers" style="height: 50vh; display: block;margin: 0 auto;">
       </article>
 
       <article id="Memory_and_Addressing_Modes">
@@ -527,7 +528,7 @@ shr %cl, %ebx — Store in EBX the floor of result of dividing the value of EBX 
             in fatal program errors since the stack will be left in an inconsistent state; thus meticulous care
             should be used when implementing the call convention in your own subroutines.
           </p>
-          <img src="./assets/stack-convention.png" alt="stack convention" style="height: 50vh; display: block;margin: 0 auto;">
+          <img class="toggle-fullscreen-modal" src="./assets/stack-convention.png" alt="stack convention" style="height: 50vh; display: block;margin: 0 auto;">
           <p>
             A good way to visualize the operation of the calling convention is to draw the contents of the 
             nearby region of the stack during subroutine execution. The image above depicts the contents of the
@@ -835,6 +836,15 @@ myFunc:
             </g>
         </g>
         </svg>
+      </section>
+
+      <!-- Modal -->
+      <section>
+        <div id="image-modal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content">
+          <div id="caption"></div>
+        </div>
       </section>
 
       <footer>
