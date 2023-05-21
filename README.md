@@ -53,7 +53,7 @@ CSS:
 - [ ] crearea și stergerea de elemente HTML
 - [ ] folosirea și modificarea evenimentelor generate de mouse si tastatură
 - [x] modificare de proprietăți
-- [ ] inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)
+- [x] inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)
 - [ ] folosirea setTimeout sau setInterval
 - [ ] folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
 - [ ] folosirea a cel puțin unei metode din clasele: Math, Array, String, Date
