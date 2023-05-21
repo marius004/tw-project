@@ -47,12 +47,12 @@ CSS:
 - [x] site-ul trebuie să conțină o animație care să modifice mai multe proprietăți ale aceluiași element  
 
 ### Cerințe generale minimale pentru partea 2 (JavaScript + misc):
-- [ ] fișier separat pentru codul JavaScript
+- [x] fișier separat pentru codul JavaScript
 - [ ] modificarea stilului unui element sau al unui grup de elemente
 - [ ] manipularea DOM-ului (selectare după id, tag, clasă, folosind selectori CSS)
 - [ ] crearea și stergerea de elemente HTML
 - [ ] folosirea și modificarea evenimentelor generate de mouse si tastatură
-- [ ] modificare de proprietăți
+- [x] modificare de proprietăți
 - [ ] inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)
 - [ ] folosirea setTimeout sau setInterval
 - [ ] folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
