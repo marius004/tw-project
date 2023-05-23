@@ -181,8 +181,21 @@ function magnify(img, zoom) {
     }
 }
 
+const addZoomOptionsEventListeners = () => {
+    const zoomValue = document.querySelector("#zoom-value");
+    zoomValue.addEventListener("input", (e) => {
+        const glass = document.querySelector(".img-magnifier-glass");
+        const zoom = e.target.value;
+
+        // set new dimensions for the glass
+        glass.style.width = zoom + "px";
+        glass.style.height = zoom + "px";
+    });
+};
+
 // event listeners
 window.addEventListener("scroll", toggleGopher);
 window.addEventListener("load", addModalPropertyToImages);
 window.addEventListener("load", addModalCloseEvent);
 window.addEventListener("load", addFormEventListeners);
+window.addEventListener("load", addZoomOptionsEventListeners);
