@@ -106,7 +106,7 @@ const addFormEventListeners = () => {
     const close = form.querySelector("#close-form");
 
     dispatcher.addEventListener("click", () => {
-        form.style.display = form.style.display === "none" ? "block" : "none";
+        form.style.display = getComputedStyle(form).display === "none" ? "block" : "none";
     });
 
     close.addEventListener("click", () => { 
@@ -146,10 +146,9 @@ function magnify(img, zoom) {
     function moveMagnifier(e) {
         var pos, x, y;
         /* Prevent any other actions that may occur when moving over the image */
-        e.preventDefault();
+        e.stopPropagation();
         /* Get the cursor's x and y positions: */
         pos = getCursorPos(e);
-        console.log(pos);
         x = pos.x;
         y = pos.y;
         /* Prevent the magnifier glass from being positioned outside the image: */
