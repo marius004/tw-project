@@ -27,8 +27,7 @@
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
+    max-height: 60%    
 }
 
 .modal #caption {

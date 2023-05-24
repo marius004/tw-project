@@ -23,7 +23,6 @@ const addModalPropertyToImage = (img) => {
         modal.style.display = "block";
         modalImage.src = img.src;
         magnify(modalImage, 2);
-        // debugger;
         modalCaption.innerHTML = img.alt || "";
     };
 };
