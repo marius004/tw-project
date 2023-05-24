@@ -1,11 +1,11 @@
 let randomZoomInterval = null;
 
 // gopher
-const toggleGopher = () => {
+const displayGopher = () => {
     const gopher = document.getElementById("gopher-animation");
-    var windowHeight = window.innerHeight;
-    var scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-    var pageHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+    const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+    const pageHeight = document.documentElement.scrollHeight;
 
     gopher.style.display = (scrollPosition + windowHeight >= pageHeight - 100) ? "block" : "none";
 };
@@ -24,20 +24,17 @@ const addModalPropertyToImage = (img) => {
     img.onclick = () => {
         modal.style.display = "block";
         modalImage.src = img.src;
-        const zoomLock = document.querySelector("#zoom-lock");
-        if (zoomLock.checked)
-            magnify(modalImage, 2);
         modalCaption.innerHTML = img.alt || "";
+
+        const zoomLock = document.querySelector("#zoom-lock");
+        if (zoomLock.checked) magnify(modalImage, 2);
     };
 };
 
 const addModalCloseEvent = () => {
     const modal = document.querySelector("#image-modal");
     const modalClose = modal.querySelector(".close");
-    
-    modalClose.onclick = () => {
-        modal.style.display = "none";
-    };
+    modalClose.onclick = () => modal.style.display = "none";
 };
 
 // form
@@ -84,6 +81,7 @@ const handleSubmit = (event) => {
     }
 
     alert(`Message sent successfully at ${getTimeString(new Date())}!`);
+    // todo: send message to server
 };
 
 const addFormInputsEventListeners = (form) => {
@@ -97,16 +95,16 @@ const addFormInputsEventListeners = (form) => {
     email.value = localStorage.getItem("email") || email.value;
     message.value = localStorage.getItem("message") || message.value;
 
-    const addOnChangeEvent = (localStorageKey, element) => {
+    const addOnChangeLocalStorageEvent = (localStorageKey, element) => {
         element.addEventListener("input", () => {
             localStorage.setItem(localStorageKey, element.value);
         });
     };
 
-    addOnChangeEvent("first-name", firstName);
-    addOnChangeEvent("last-name", lastName);
-    addOnChangeEvent("email", email);
-    addOnChangeEvent("message", message);
+    addOnChangeLocalStorageEvent("first-name", firstName);
+    addOnChangeLocalStorageEvent("last-name", lastName);
+    addOnChangeLocalStorageEvent("email", email);
+    addOnChangeLocalStorageEvent("message", message);
 };
 
 const addFormEventListeners = () => {
@@ -118,9 +116,7 @@ const addFormEventListeners = () => {
         form.style.display = getComputedStyle(form).display === "none" ? "block" : "none";
     });
 
-    close.addEventListener("click", () => { 
-        form.style.display = "none";
-    });
+    close.addEventListener("click", () => form.style.display = "none");
 
     addFormInputsEventListeners(form);
     addFormInputsEventListeners(form);
@@ -202,9 +198,8 @@ const randomInteger = (max) => {
 const addZoomOptionsEventListeners = () => {
     const zoomValue = document.querySelector("#zoom-value");
 
-    const setGlassDimensions = (zoom) => {
+    const setGlassSize = (zoom) => {
         const glass = document.querySelector(".img-magnifier-glass");
-        // set new dimensions for the glass
         glass.style.width = zoom + "px";
         glass.style.height = zoom + "px";
     }
@@ -215,9 +210,7 @@ const addZoomOptionsEventListeners = () => {
         return parseFloat(sizeStr.slice(0, -2));
     };
 
-    zoomValue.addEventListener("input", (e) => {
-        setGlassDimensions(e.target.value);
-    });
+    zoomValue.addEventListener("input", (e) => setGlassSize(e.target.value));
 
     const zoomLock = document.querySelector("#zoom-lock");
     zoomLock.addEventListener("change", (e) => {
@@ -225,7 +218,7 @@ const addZoomOptionsEventListeners = () => {
         const modalImage = document.querySelector("img.modal-content");
         if (value) {
             magnify(modalImage, 2);
-            setGlassDimensions(zoomValue.value);
+            setGlassSize(zoomValue.value);
         } else {
             document.querySelectorAll(".img-magnifier-glass").forEach(glass => glass.remove());
         }
@@ -246,13 +239,13 @@ const addZoomOptionsEventListeners = () => {
             const sign = randomInteger(2) == 0 ? -1 : 1;
             const newSize = Math.min(Math.max(100, size + sign * randomInteger(20)), 250);
             zoomValue.value = newSize;
-            setGlassDimensions(newSize);
+            setGlassSize(newSize);
         }, 500);
     });
 };
 
 // event listeners
-window.addEventListener("scroll", toggleGopher);
+window.addEventListener("scroll", displayGopher);
 window.addEventListener("load", addModalPropertyToImages);
 window.addEventListener("load", addModalCloseEvent);
 window.addEventListener("load", addFormEventListeners);
