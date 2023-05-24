@@ -68,6 +68,12 @@ const validateForm = () => {
     return {message: "", isValid: true};
 };
 
+const getTimeString = (date) => {
+    const hour = date.getHours().toString().padStart(2, "0");
+    const minute = date.getMinutes().toString().padStart(2, "0");
+    return `${hour}:${minute}`;
+}
+
 const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -77,7 +83,7 @@ const handleSubmit = (event) => {
         return;
     }
 
-    alert("Message sent successfully!");
+    alert(`Message sent successfully at ${getTimeString(new Date())}!`);
 };
 
 const addFormInputsEventListeners = (form) => {
@@ -150,7 +156,7 @@ function magnify(img, zoom) {
     img.addEventListener("touchmove", moveMagnifier);
 
     function moveMagnifier(e) {
-        var pos, x, y;
+        let pos, x, y;
         /* Prevent any other actions that may occur when moving over the image */
         e.stopPropagation();
         /* Get the cursor's x and y positions: */

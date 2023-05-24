@@ -54,10 +54,10 @@ CSS:
 - [x] folosirea și modificarea evenimentelor generate de mouse si tastatură
 - [x] modificare de proprietăți
 - [x] inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)
-- [ ] folosirea setTimeout sau setInterval
+- [x] folosirea setTimeout sau setInterval
 - [x] folosirea localStorage (să se pastreze în localStorage o colecție de elemente)
-- [ ] folosirea a cel puțin unei metode din clasele: Math, Array, String, Date
-- [ ] schimbarea aleatoare a valorilor unor proprietăți (de exemplu: culoare, dimensiuni, poziție)
+- [x] folosirea a cel puțin unei metode din clasele: Math, Array, String, Date
+- [x] schimbarea aleatoare a valorilor unor proprietăți (de exemplu: culoare, dimensiuni, poziție)
 - [ ] folosirea proprietăților classList, target sau currentTarget
 - [x] folosirea metodelor getComputedStyle și stopPropagation
 - [x] validarea datelor dintr-un formular folosind expresii regulate
