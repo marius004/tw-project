@@ -123,6 +123,7 @@ const addFormEventListeners = () => {
     });
 
     addFormInputsEventListeners(form);
+    addFormInputsEventListeners(form);
 }
 
 // FROM https://www.w3schools.com/howto/howto_js_image_magnifier_glass.asp
@@ -134,7 +135,7 @@ function magnify(img, zoom) {
   
     /* Create magnifier glass: */
     glass = document.createElement("DIV");
-    glass.setAttribute("class", "img-magnifier-glass");
+    glass.classList.add("img-magnifier-glass");
   
     /* Insert magnifier glass: */
     img.parentElement.insertBefore(glass, img);
