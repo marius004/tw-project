@@ -1,4 +1,5 @@
 let randomZoomInterval = null;
+let zoomLevel = 2;
 
 // gopher
 const displayGopher = () => {
@@ -27,7 +28,7 @@ const addModalPropertyToImage = (img) => {
         modalCaption.innerHTML = img.alt || "";
 
         const zoomLock = document.querySelector("#zoom-lock");
-        if (zoomLock.checked) magnify(modalImage, 2);
+        if (zoomLock.checked) magnify(modalImage, zoomLevel);
     };
 };
 
@@ -217,7 +218,7 @@ const addZoomOptionsEventListeners = () => {
         const value = e.target.checked;
         const modalImage = document.querySelector("img.modal-content");
         if (value) {
-            magnify(modalImage, 2);
+            magnify(modalImage, zoomLevel);
             setGlassSize(zoomValue.value);
         } else {
             document.querySelectorAll(".img-magnifier-glass").forEach(glass => glass.remove());

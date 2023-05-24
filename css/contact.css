@@ -5,8 +5,7 @@
     left: 55%;
     transform: translate(-55%, -40%);
     background-color: #424242;
-    width: 400px;
-    padding: 12px 16px;
+    padding: .75rem 1rem;
     border-radius: 5px;
     z-index: 1;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 1.2);
@@ -38,7 +37,7 @@
 
 #Contact_me textarea {
     resize: none;
-    min-height: 100px;
+    min-height: 15vh;
     padding: 4px 6px;
     font-size: 1.2rem;
 }
@@ -60,7 +59,7 @@
 	color: #b0bec5;
 	border-style: outset;
 	border-color: #0066A2;
-	font: bold 15px arial,sans-serif;
+	font: bold 1rem arial,sans-serif;
 	text-shadow: none;
     margin: 12px 6px;
     padding: 12px 16px;
