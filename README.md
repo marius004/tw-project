@@ -50,7 +50,7 @@ CSS:
 - [x] fișier separat pentru codul JavaScript
 - [x] modificarea stilului unui element sau al unui grup de elemente
 - [x] manipularea DOM-ului (selectare după id, tag, clasă, folosind selectori CSS)
-- [ ] crearea și stergerea de elemente HTML
+- [x] crearea și stergerea de elemente HTML
 - [x] folosirea și modificarea evenimentelor generate de mouse si tastatură
 - [x] modificare de proprietăți
 - [x] inputuri funcționale (de exemplu: input de tip text/range/number/radio/checkbox, select, textarea)

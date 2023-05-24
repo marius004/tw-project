@@ -22,7 +22,9 @@ const addModalPropertyToImage = (img) => {
     img.onclick = () => {
         modal.style.display = "block";
         modalImage.src = img.src;
-        magnify(modalImage, 2);
+        const zoomLock = document.querySelector("#zoom-lock");
+        if (zoomLock.checked)
+            magnify(modalImage, 2);
         modalCaption.innerHTML = img.alt || "";
     };
 };
@@ -182,13 +184,29 @@ function magnify(img, zoom) {
 
 const addZoomOptionsEventListeners = () => {
     const zoomValue = document.querySelector("#zoom-value");
-    zoomValue.addEventListener("input", (e) => {
-        const glass = document.querySelector(".img-magnifier-glass");
-        const zoom = e.target.value;
 
+    const setGlassDimensions = (zoom) => {
+        const glass = document.querySelector(".img-magnifier-glass");
         // set new dimensions for the glass
         glass.style.width = zoom + "px";
         glass.style.height = zoom + "px";
+    }
+
+    zoomValue.addEventListener("input", (e) => {
+        setGlassDimensions(e.target.value);
+    });
+
+    const zoomLock = document.querySelector("#zoom-lock");
+    zoomLock.addEventListener("change", (e) => {
+        const value = e.target.checked;
+        const modalImage = document.querySelector("img.modal-content");
+        if (value) {
+            magnify(modalImage, 2);
+            setGlassDimensions(zoomValue.value);
+        } else {
+            const glass = document.querySelector(".img-magnifier-glass");
+            glass?.remove();
+        }
     });
 };
 
