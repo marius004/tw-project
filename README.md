@@ -1,5 +1,11 @@
 # Proiect laborator
  
+### Profesor: 
+
+Am modificat si ce era gresit la prima parte cu valorile absolute vs valorile relative. 
+Puteti sa va uitati peste acest commit: https://github.com/marius004/tw-project/commit/6e6461e80028a563439a83ae2af89c5d24ab08b6
+
+
 Pentru componenta de proiect a cursului, fiecare student trebuie să dezvolte un website.  
 Proiectul va fi realizat individual și va avea două părți:  
 1. HTML + CSS + responsive (predare și evaluare în timpul laboratorului 6, săptămâna 7)  
