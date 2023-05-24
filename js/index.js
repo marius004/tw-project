@@ -1,3 +1,5 @@
+let randomZoomInterval = null;
+
 // gopher
 const toggleGopher = () => {
     const gopher = document.getElementById("gopher-animation");
@@ -120,6 +122,9 @@ const addFormEventListeners = () => {
 // FROM https://www.w3schools.com/howto/howto_js_image_magnifier_glass.asp
 function magnify(img, zoom) {
     var glass, w, h, bw;
+
+    /* delete previous glass if there's any */
+    document.querySelectorAll(".img-magnifier-glass").forEach(glass => glass.remove());
   
     /* Create magnifier glass: */
     glass = document.createElement("DIV");
@@ -170,6 +175,7 @@ function magnify(img, zoom) {
     function getCursorPos(e) {
         var a, x = 0, y = 0;
         e = e || window.event;
+        debugger;
         /* Get the x and y positions of the image: */
         a = img.getBoundingClientRect();
         /* Calculate the cursor's x and y coordinates, relative to the image: */
@@ -182,6 +188,10 @@ function magnify(img, zoom) {
     }
 }
 
+const randomInteger = (max) => {
+    return Math.floor(Math.random() * max);
+};
+
 const addZoomOptionsEventListeners = () => {
     const zoomValue = document.querySelector("#zoom-value");
 
@@ -191,6 +201,12 @@ const addZoomOptionsEventListeners = () => {
         glass.style.width = zoom + "px";
         glass.style.height = zoom + "px";
     }
+
+    const getGlassSize = () => {
+        const glass = document.querySelector(".img-magnifier-glass");
+        const sizeStr = getComputedStyle(glass).width;
+        return parseFloat(sizeStr.slice(0, -2));
+    };
 
     zoomValue.addEventListener("input", (e) => {
         setGlassDimensions(e.target.value);
@@ -204,9 +220,27 @@ const addZoomOptionsEventListeners = () => {
             magnify(modalImage, 2);
             setGlassDimensions(zoomValue.value);
         } else {
-            const glass = document.querySelector(".img-magnifier-glass");
-            glass?.remove();
+            document.querySelectorAll(".img-magnifier-glass").forEach(glass => glass.remove());
         }
+    });
+
+    const randomZoom = document.querySelector("#random-zoom");
+    randomZoom.addEventListener("change", () => {
+        const value = randomZoom.checked;
+        if (!zoomLock.checked) zoomLock.click();
+
+        if (!value) {
+            clearInterval(randomZoomInterval);
+            return;
+        }
+
+        randomZoomInterval = setInterval(() => {
+            const size = getGlassSize();
+            const sign = randomInteger(2) == 0 ? -1 : 1;
+            const newSize = Math.min(Math.max(100, size + sign * randomInteger(20)), 250);
+            zoomValue.value = newSize;
+            setGlassDimensions(newSize);
+        }, 500);
     });
 };
 
